@@ -11,11 +11,12 @@
         }
     ],
     "require": {
-        "php": "^7.3|^8.0",
-        "illuminate/database": "^8.61"
+        "php": "^7.3|^8.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "orchestra/testbench": "^6.21",
+        "illuminate/database": "^8.61"
     },
     "autoload": {
         "psr-4": {
