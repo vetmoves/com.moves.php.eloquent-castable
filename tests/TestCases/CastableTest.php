@@ -2,7 +2,7 @@
 
 namespace Tests\TestCases;
 
-use PHPUnit\Framework\TestCase;
+use Tests\TestCases\TestCase;
 use Tests\Models\ChildClassA;
 use Tests\Models\ChildClassB;
 use Tests\Models\ChildClassC;
