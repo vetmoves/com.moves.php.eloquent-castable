@@ -18,9 +18,11 @@ trait TCastable
             }
         });
 
-        static::addGlobalScope(static::$CAST_TYPE_KEY, function (Builder $builder) {
-            $builder->where(static::$CAST_TYPE_KEY, static::class);
-        });
+        if (is_subclass_of(static::class, self::class)) {
+            static::addGlobalScope(static::$CAST_TYPE_KEY, function (Builder $builder) {
+                $builder->where(static::$CAST_TYPE_KEY, static::class);
+            });
+        }
     }
 
     public function cast(): ICastable {

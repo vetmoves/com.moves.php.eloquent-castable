@@ -16,7 +16,5 @@ class ParentClass extends Model implements ICastable
 {
     use TCastable;
 
-    protected $table = 'test_models';
-
     public $fillable = ['cast_type'];
 }

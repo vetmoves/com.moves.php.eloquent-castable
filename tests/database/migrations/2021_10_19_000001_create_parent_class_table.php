@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTestModelsTable extends Migration
+class CreateParentClassTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTestModelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('test_models', function (Blueprint $table) {
+        Schema::create('parent_classes', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->primary();
             $table->timestamps();
             $table->string('cast_type');
@@ -27,6 +27,6 @@ class CreateTestModelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('test_models');
+        Schema::dropIfExists('parent_classes');
     }
 }
