@@ -70,5 +70,17 @@ class TCastableTest extends TestCase
         $this->assertCount(1, $aChildren);
         $this->assertInstanceOf(ChildClassA::class, $aChildren[0]);
         $this->assertEquals(ChildClassA::class, $aChildren[0]->cast_type);
+
+        $bChildren = ChildClassB::all();
+
+        $this->assertCount(1, $bChildren);
+        $this->assertInstanceOf(ChildClassB::class, $bChildren[0]);
+        $this->assertEquals(ChildClassB::class, $bChildren[0]->cast_type);
+
+        $cChildren = ChildClassC::all();
+
+        $this->assertCount(1, $cChildren);
+        $this->assertInstanceOf(ChildClassC::class, $cChildren[0]);
+        $this->assertEquals(ChildClassC::class, $cChildren[0]->cast_type);
     }
 }
