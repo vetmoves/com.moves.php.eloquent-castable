@@ -16,13 +16,7 @@ class ParentClass extends Model implements ICastable
 {
     use TCastable;
 
-    public $fillable = ['type'];
+    protected $table = 'test_models';
 
-    public function cast(): ICastable {
-        if (class_exists($this->type)) {
-            return new $this->type;
-        } else {
-            return $this;
-        }
-    }
+    public $fillable = ['cast_type'];
 }

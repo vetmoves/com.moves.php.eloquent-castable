@@ -10,7 +10,7 @@ abstract class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        $this->loadMigrationsFrom(__DIR__ . '/../Assets/database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
     }
 
     protected function getEnvironmentSetUp($app)
