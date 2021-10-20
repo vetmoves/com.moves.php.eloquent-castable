@@ -4,7 +4,7 @@ The purpose of this library is to provide overrides to the default Laravel/Eloqu
 instances from your app database in order to cast query results from concrete parent models to the appropriate child
 model classes.
 
-For the short explanation, skip to [TL;DR](#TL;DR).
+For the short explanation, skip to [TL;DR](#tldr).
 
 ### In-Depth Explanation
 By default, Eloquent hydrates instances of the same class used to initiate the query, like this:
