@@ -3,6 +3,7 @@
 namespace Moves\Eloquent\Castable\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Concerns\HasAttributes;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Moves\Eloquent\Castable\Contracts\ICastable;
@@ -38,7 +39,7 @@ trait TCastable
     /**
      * Override default Model behavior
      *
-     * @see https://github.com/illuminate/database/blob/master/Eloquent/Model.php
+     * @see \Illuminate\Database\Eloquent\Model
      * @return string
      */
     public function getTable()
@@ -49,7 +50,7 @@ trait TCastable
     /**
      * Override default Model behavior
      *
-     * @see https://github.com/illuminate/database/blob/master/Eloquent/Model.php
+     * @see \Illuminate\Database\Eloquent\Model
      * @param array $attributes
      * @param null $connection
      */
@@ -69,7 +70,7 @@ trait TCastable
     /**
      * Override default Model behavior
      *
-     * @see https://github.com/illuminate/database/blob/master/Eloquent/Model.php
+     * @see \Illuminate\Database\Eloquent\Model
      * @param array $attributes
      * @param false $exists
      * @return $this
@@ -107,5 +108,19 @@ trait TCastable
         $model->mergeCasts($this->casts);
 
         return $model;
+    }
+
+    /**
+     * Override default Model behavior
+     *
+     * @see \Illuminate\Database\Eloquent\Concerns\HasAttributes
+     * @param  array  $casts
+     * @return $this
+     */
+    public function mergeCasts($casts)
+    {
+        $this->casts = array_merge($casts, $this->casts);
+
+        return $this;
     }
 }

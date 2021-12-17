@@ -55,6 +55,17 @@ class TCastableTest extends TestCase
         $this->assertInstanceOf(ChildClassC::class, $all[2]);
     }
 
+    public function testChildCastsMergesIntoParentCasts()
+    {
+        $instance = new ParentClass(['cast_type' => ChildClassA::class, 'property' => 123]);
+        $child = $instance->cast();
+        $this->assertNotEquals($instance->casts, $child->casts);
+
+        $instance = new ParentClass(['cast_type' => ChildClassB::class, 'property' => 123]);
+        $child = $instance->cast();
+        $this->assertEquals($instance->casts, $child->casts);
+    }
+
     public function testChildAssumesParentTable()
     {
         $parent = new ParentClass([]);

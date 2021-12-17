@@ -17,5 +17,7 @@ class ParentClass extends Model implements ICastable
 {
     use TCastable;
 
-    public $fillable = ['cast_type', 'property'];
+    public $fillable = ['cast_type', 'property', 'abc123'];
+
+    public $casts = ['abc123' => 'array'];
 }
