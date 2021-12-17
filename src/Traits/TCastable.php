@@ -78,12 +78,20 @@ trait TCastable
     {
         $className = static::class;
 
-        if (
-            array_key_exists(static::$CAST_TYPE_KEY, $attributes) &&
-            class_exists($attributes[static::$CAST_TYPE_KEY]) &&
-            is_subclass_of($attributes[static::$CAST_TYPE_KEY], static::class)
-        ) {
-            $className = $attributes[static::$CAST_TYPE_KEY];
+        if (array_key_exists(static::$CAST_TYPE_KEY, $attributes))
+        {
+            if (
+                class_exists($attributes[static::$CAST_TYPE_KEY]) &&
+                is_subclass_of($attributes[static::$CAST_TYPE_KEY], static::class)
+            )
+            {
+                $className = $attributes[static::$CAST_TYPE_KEY];
+            }
+
+            if (count($attributes) == 1)
+            {
+                $attributes = [];
+            }
         }
 
         $model = new $className((array) $attributes);
