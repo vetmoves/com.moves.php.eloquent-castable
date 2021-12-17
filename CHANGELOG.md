@@ -4,6 +4,14 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [1.0.3](https://github.com/vetmoves/com.moves.php.eloquent.castable/compare/1.0.2...1.0.3) (2021-12-17)
+### Bug Fixes
+
+* Use newFromBuilder to set child instance attributes when casting ([a56787](https://github.com/vetmoves/com.moves.php.eloquent.castable/commit/a56787ddfe3d8daa02ca76cca88d78d77e5f7dc1))
+
+
+---
+
 ## [1.0.2](https://github.com/vetmoves/com.moves.php.eloquent.castable/compare/1.0.1...1.0.2) (2021-12-17)
 ### Bug Fixes
 
