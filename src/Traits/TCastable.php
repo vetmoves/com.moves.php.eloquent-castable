@@ -29,9 +29,7 @@ trait TCastable
         $castType = $this->getAttribute(static::$CAST_TYPE_KEY);
 
         if (class_exists($castType)) {
-            $model = new $castType;
-            $model->forceFill($this->attributes);
-            return $model;
+            return $this->newFromBuilder($this->attributes);
         } else {
             return $this;
         }
