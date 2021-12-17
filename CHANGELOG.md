@@ -4,6 +4,14 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [1.0.4](https://github.com/vetmoves/com.moves.php.eloquent.castable/compare/1.0.3...1.0.4) (2021-12-17)
+### Bug Fixes
+
+* Merge child casts array into parent, not parent into child ([d12e19](https://github.com/vetmoves/com.moves.php.eloquent.castable/commit/d12e1903f310a7ad940d3b18e9920ab2b33c1529))
+
+
+---
+
 ## [1.0.3](https://github.com/vetmoves/com.moves.php.eloquent.castable/compare/1.0.2...1.0.3) (2021-12-17)
 ### Bug Fixes
 
