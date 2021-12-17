@@ -18,21 +18,25 @@ class TCastableTest extends TestCase
 
     public function testManualCast()
     {
-        $instance = new ParentClass(['cast_type' => ChildClassA::class]);
+        $instance = new ParentClass(['cast_type' => ChildClassA::class, 'property' => 123]);
         $child = $instance->cast();
         $this->assertInstanceOf(ChildClassA::class, $child);
+        $this->assertEquals($instance->property, $child->property);
 
-        $instance = new ParentClass(['cast_type' => ChildClassB::class]);
+        $instance = new ParentClass(['cast_type' => ChildClassB::class, 'property' => 123]);
         $child = $instance->cast();
         $this->assertInstanceOf(ChildClassB::class, $child);
+        $this->assertEquals($instance->property, $child->property);
 
-        $instance = new ParentClass(['cast_type' => ChildClassC::class]);
+        $instance = new ParentClass(['cast_type' => ChildClassC::class, 'property' => 123]);
         $child = $instance->cast();
         $this->assertInstanceOf(ChildClassC::class, $child);
+        $this->assertEquals($instance->property, $child->property);
 
-        $instance = new ParentClass(['cast_type' => 'GarbageClass']);
+        $instance = new ParentClass(['cast_type' => 'GarbageClass', 'property' => 123]);
         $child = $instance->cast();
         $this->assertInstanceOf(ParentClass::class, $child);
+        $this->assertEquals($instance->property, $child->property);
     }
 
     public function testAutomaticCast()

@@ -11,10 +11,11 @@ use Moves\Eloquent\Castable\Traits\TCastable;
  * @package Tests\Models
  *
  * @property string $type
+ * @property int $property
  */
 class ParentClass extends Model implements ICastable
 {
     use TCastable;
 
-    public $fillable = ['cast_type'];
+    public $fillable = ['cast_type', 'property'];
 }
