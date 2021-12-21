@@ -38,6 +38,13 @@ trait TCastable
         return $this;
     }
 
+    protected function castOverridesMethod(string $method): bool
+    {
+        $reflector = new \ReflectionMethod($this->cast(), $method);
+
+        return $reflector->getDeclaringClass()->getName() != self::class;
+    }
+
     /**
      * Override default Model behavior
      *

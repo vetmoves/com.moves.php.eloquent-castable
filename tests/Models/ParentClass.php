@@ -20,4 +20,14 @@ class ParentClass extends Model implements ICastable
     public $fillable = ['cast_type', 'property', 'abc123'];
 
     public $casts = ['abc123' => 'array'];
+
+    public function getCastOverridesMethod(string $method): bool
+    {
+        return $this->castOverridesMethod($method);
+    }
+
+    protected function testMethod(): bool
+    {
+        return true;
+    }
 }

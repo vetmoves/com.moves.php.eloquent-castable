@@ -55,6 +55,15 @@ class TCastableTest extends TestCase
         $this->assertInstanceOf(ChildClassC::class, $all[2]);
     }
 
+    public function testCastOverridesMethod()
+    {
+        $instance = new ParentClass(['cast_type' => ChildClassA::class, 'property' => 123]);
+        $this->assertTrue($instance->getCastOverridesMethod('testMethod'));
+
+        $instance = new ParentClass(['cast_type' => ChildClassB::class, 'property' => 123]);
+        $this->assertFalse($instance->getCastOverridesMethod('testMethod'));
+    }
+
     public function testChildCastsMergesIntoParentCasts()
     {
         $instance = new ParentClass(['cast_type' => ChildClassA::class, 'property' => 123]);
