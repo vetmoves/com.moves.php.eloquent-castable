@@ -32,7 +32,13 @@ trait TCastable
         $currentClass = get_class($this);
 
         if (class_exists($castType) && $currentClass != $castType) {
-            return $this->newFromBuilder($this->attributes);
+            /** @var Model|ICastable $model */
+            $model = new $castType();
+            $model->setRawAttributes($this->attributes);
+            $model->setConnection($this->connection);
+            $model->exists = $this->exists;
+
+            return $model;
         }
 
         return $this;
