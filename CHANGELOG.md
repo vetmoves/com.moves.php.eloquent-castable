@@ -4,6 +4,14 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [1.1.1](https://github.com/vetmoves/com.moves.php.eloquent.castable/compare/1.1.0...1.1.1) (2021-12-21)
+### Bug Fixes
+
+* Build cast instance from scratch, instead of using newFromBuilder ([b246c9](https://github.com/vetmoves/com.moves.php.eloquent.castable/commit/b246c9a95f376799d9fdd0d2ba5cca86abd70f66))
+
+
+---
+
 ## [1.1.0](https://github.com/vetmoves/com.moves.php.eloquent.castable/compare/1.0.5...1.1.0) (2021-12-21)
 ### Features
 
