@@ -29,11 +29,13 @@ trait TCastable
     public function cast(): ICastable {
         $castType = $this->getAttribute(static::$CAST_TYPE_KEY);
 
-        if (class_exists($castType)) {
+        $currentClass = get_class($this);
+
+        if (class_exists($castType) && $currentClass != $castType) {
             return $this->newFromBuilder($this->attributes);
-        } else {
-            return $this;
         }
+
+        return $this;
     }
 
     /**
