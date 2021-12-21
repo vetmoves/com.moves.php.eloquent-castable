@@ -4,6 +4,14 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [1.1.0](https://github.com/vetmoves/com.moves.php.eloquent.castable/compare/1.0.5...1.1.0) (2021-12-21)
+### Features
+
+* Added helper method castOverridesMethod ([793326](https://github.com/vetmoves/com.moves.php.eloquent.castable/commit/7933266c90d911b0c9a7bd118905456711a99073))
+
+
+---
+
 ## [1.0.5](https://github.com/vetmoves/com.moves.php.eloquent.castable/compare/1.0.4...1.0.5) (2021-12-21)
 
 ---
