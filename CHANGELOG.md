@@ -4,6 +4,10 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [1.0.5](https://github.com/vetmoves/com.moves.php.eloquent.castable/compare/1.0.4...1.0.5) (2021-12-21)
+
+---
+
 ## [1.0.4](https://github.com/vetmoves/com.moves.php.eloquent.castable/compare/1.0.3...1.0.4) (2021-12-17)
 ### Bug Fixes
 
