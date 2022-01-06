@@ -1,4 +1,4 @@
-# Castable
+# Subtypeable
 ## Introduction
 The purpose of this library is to provide overrides to the default Laravel/Eloquent behaviors for querying model
 instances from your app database in order to cast query results from concrete parent models to the appropriate child
@@ -66,20 +66,20 @@ override this at the parent class or the child class level by setting the `$tabl
 ## Installation
 To add this library into your project, run:
 ```
-composer require moves/eloquent-castable
+composer require moves/eloquent-subtypeable
 ```
 
 ## Usage
-To continue with the example above, implement your parent class by implementing `ICastable` and using the `TCastable`
+To continue with the example above, implement your parent class by implementing `ISubtypeable` and using the `TSubtypeable`
 trait:
 ```
 use Illuminate\Database\Eloquent\Model;
-use Moves\Eloquent\Castable\Contracts\ICastable;
-use Moves\Eloquent\Castable\Traits\TCastable;
+use Moves\Eloquent\Subtypeable\Contracts\ISubtypeable;
+use Moves\Eloquent\Subtypeable\Traits\TSubtypeable;
 
-class Pet extends Model Implements ICastable
+class Pet extends Model Implements ISubtypeable
 {
-    use TCastable;
+    use TSubtypeable;
     
     public function speak(): string
     {

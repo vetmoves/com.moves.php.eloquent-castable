@@ -3,8 +3,8 @@
 namespace Tests\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Moves\Eloquent\Castable\Contracts\ICastable;
-use Moves\Eloquent\Castable\Traits\TCastable;
+use Moves\Eloquent\Subtypeable\Contracts\ISubtyepable;
+use Moves\Eloquent\Subtypeable\Traits\TSubtypeable;
 
 /**
  * Class ParentClass
@@ -13,17 +13,17 @@ use Moves\Eloquent\Castable\Traits\TCastable;
  * @property string $type
  * @property int $property
  */
-class ParentClass extends Model implements ICastable
+class ParentClass extends Model implements ISubtyepable
 {
-    use TCastable;
+    use TSubtypeable;
 
-    public $fillable = ['cast_type', 'property', 'abc123'];
+    public $fillable = ['subtype_class', 'property', 'abc123'];
 
     public $casts = ['abc123' => 'array'];
 
-    public function getCastOverridesMethod(string $method): bool
+    public function getSubtypeOverridesMethod(string $method): bool
     {
-        return $this->castOverridesMethod($method);
+        return $this->subtypeOverridesMethod($method);
     }
 
     protected function testMethod(): bool

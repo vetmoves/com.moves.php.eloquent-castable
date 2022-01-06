@@ -7,7 +7,7 @@ use Tests\Models\ChildClassB;
 use Tests\Models\ChildClassC;
 use Tests\Models\ParentClass;
 
-class TCastableTest extends TestCase
+class TSubtypeableTest extends TestCase
 {
     protected function setUp(): void
     {
@@ -16,30 +16,30 @@ class TCastableTest extends TestCase
         ParentClass::truncate();
     }
 
-    public function testManualCast()
+    public function testManualSubtype()
     {
-        $instance = new ParentClass(['cast_type' => ChildClassA::class, 'property' => 123]);
-        $child = $instance->cast();
+        $instance = new ParentClass(['subtype_class' => ChildClassA::class, 'property' => 123]);
+        $child = $instance->subtype();
         $this->assertInstanceOf(ChildClassA::class, $child);
         $this->assertEquals($instance->property, $child->property);
 
-        $instance = new ParentClass(['cast_type' => ChildClassB::class, 'property' => 123]);
-        $child = $instance->cast();
+        $instance = new ParentClass(['subtype_class' => ChildClassB::class, 'property' => 123]);
+        $child = $instance->subtype();
         $this->assertInstanceOf(ChildClassB::class, $child);
         $this->assertEquals($instance->property, $child->property);
 
-        $instance = new ParentClass(['cast_type' => ChildClassC::class, 'property' => 123]);
-        $child = $instance->cast();
+        $instance = new ParentClass(['subtype_class' => ChildClassC::class, 'property' => 123]);
+        $child = $instance->subtype();
         $this->assertInstanceOf(ChildClassC::class, $child);
         $this->assertEquals($instance->property, $child->property);
 
-        $instance = new ParentClass(['cast_type' => 'GarbageClass', 'property' => 123]);
-        $child = $instance->cast();
+        $instance = new ParentClass(['subtype_class' => 'GarbageClass', 'property' => 123]);
+        $child = $instance->subtype();
         $this->assertInstanceOf(ParentClass::class, $child);
         $this->assertEquals($instance->property, $child->property);
     }
 
-    public function testAutomaticCast()
+    public function testAutomaticSubtype()
     {
         ChildClassA::create([]);
         ChildClassB::create([]);
@@ -55,23 +55,23 @@ class TCastableTest extends TestCase
         $this->assertInstanceOf(ChildClassC::class, $all[2]);
     }
 
-    public function testCastOverridesMethod()
+    public function testSubtypeOverridesMethod()
     {
-        $instance = new ParentClass(['cast_type' => ChildClassA::class, 'property' => 123]);
-        $this->assertTrue($instance->getCastOverridesMethod('testMethod'));
+        $instance = new ParentClass(['subtype_class' => ChildClassA::class, 'property' => 123]);
+        $this->assertTrue($instance->getSubtypeOverridesMethod('testMethod'));
 
-        $instance = new ParentClass(['cast_type' => ChildClassB::class, 'property' => 123]);
-        $this->assertFalse($instance->getCastOverridesMethod('testMethod'));
+        $instance = new ParentClass(['subtype_class' => ChildClassB::class, 'property' => 123]);
+        $this->assertFalse($instance->getSubtypeOverridesMethod('testMethod'));
     }
 
     public function testChildCastsMergesIntoParentCasts()
     {
-        $instance = new ParentClass(['cast_type' => ChildClassA::class, 'property' => 123]);
-        $child = $instance->cast();
+        $instance = new ParentClass(['subtype_class' => ChildClassA::class, 'property' => 123]);
+        $child = $instance->subtype();
         $this->assertNotEquals($instance->casts, $child->casts);
 
-        $instance = new ParentClass(['cast_type' => ChildClassB::class, 'property' => 123]);
-        $child = $instance->cast();
+        $instance = new ParentClass(['subtype_class' => ChildClassB::class, 'property' => 123]);
+        $child = $instance->subtype();
         $this->assertEquals($instance->casts, $child->casts);
     }
 
@@ -93,18 +93,18 @@ class TCastableTest extends TestCase
 
         $this->assertCount(1, $aChildren);
         $this->assertInstanceOf(ChildClassA::class, $aChildren[0]);
-        $this->assertEquals(ChildClassA::class, $aChildren[0]->cast_type);
+        $this->assertEquals(ChildClassA::class, $aChildren[0]->subtype_class);
 
         $bChildren = ChildClassB::all();
 
         $this->assertCount(1, $bChildren);
         $this->assertInstanceOf(ChildClassB::class, $bChildren[0]);
-        $this->assertEquals(ChildClassB::class, $bChildren[0]->cast_type);
+        $this->assertEquals(ChildClassB::class, $bChildren[0]->subtype_class);
 
         $cChildren = ChildClassC::all();
 
         $this->assertCount(1, $cChildren);
         $this->assertInstanceOf(ChildClassC::class, $cChildren[0]);
-        $this->assertEquals(ChildClassC::class, $cChildren[0]->cast_type);
+        $this->assertEquals(ChildClassC::class, $cChildren[0]->subtype_class);
     }
 }

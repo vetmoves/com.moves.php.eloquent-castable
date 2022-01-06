@@ -16,7 +16,7 @@ class CreateParentClassTable extends Migration
         Schema::create('parent_classes', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->primary();
             $table->timestamps();
-            $table->string('cast_type');
+            $table->string('subtype_class');
         });
     }
 
