@@ -4,6 +4,14 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [2.0.0](https://github.com/vetmoves/com.moves.php.eloquent.subtypeable/compare/1.1.1...2.0.0) (2022-01-06)
+### ⚠ BREAKING CHANGES
+
+* Change name from Castable to Subtypeable ([8f8660](https://github.com/vetmoves/com.moves.php.eloquent.subtypeable/commit/8f86601f1d83bec0ee7190145596ba02cbcc2466))
+
+
+---
+
 ## [1.1.1](https://github.com/vetmoves/com.moves.php.eloquent.subtypeable/compare/1.1.0...1.1.1) (2021-12-21)
 ### Bug Fixes
 
