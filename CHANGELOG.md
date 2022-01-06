@@ -4,6 +4,14 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [2.0.1](https://github.com/vetmoves/com.moves.php.eloquent.subtypeable/compare/2.0.0...2.0.1) (2022-01-06)
+### Bug Fixes
+
+* Fix typo in ISubtypeable ([cf90f7](https://github.com/vetmoves/com.moves.php.eloquent.subtypeable/commit/cf90f7c356ec30abd42d39e8cd7b53e6de4d50a0))
+
+
+---
+
 ## [2.0.0](https://github.com/vetmoves/com.moves.php.eloquent.subtypeable/compare/1.1.1...2.0.0) (2022-01-06)
 ### ⚠ BREAKING CHANGES
 
