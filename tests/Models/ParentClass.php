@@ -3,7 +3,7 @@
 namespace Tests\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Moves\Eloquent\Subtypeable\Contracts\ISubtyepable;
+use Moves\Eloquent\Subtypeable\Contracts\ISubtypeable;
 use Moves\Eloquent\Subtypeable\Traits\TSubtypeable;
 
 /**
@@ -13,7 +13,7 @@ use Moves\Eloquent\Subtypeable\Traits\TSubtypeable;
  * @property string $type
  * @property int $property
  */
-class ParentClass extends Model implements ISubtyepable
+class ParentClass extends Model implements ISubtypeable
 {
     use TSubtypeable;
 

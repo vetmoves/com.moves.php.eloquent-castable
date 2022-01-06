@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasAttributes;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use Moves\Eloquent\Subtypeable\Contracts\ISubtyepable;
+use Moves\Eloquent\Subtypeable\Contracts\ISubtypeable;
 
 trait TSubtypeable
 {
@@ -26,13 +26,13 @@ trait TSubtypeable
         }
     }
 
-    public function subtype(): ISubtyepable {
+    public function subtype(): ISubtypeable {
         $subtype = $this->getAttribute(static::$SUBTYPE_KEY);
 
         $currentClass = get_class($this);
 
         if (class_exists($subtype) && $currentClass != $subtype) {
-            /** @var Model|ISubtyepable $model */
+            /** @var Model|ISubtypeable $model */
             $model = new $subtype();
             $model->setRawAttributes($this->attributes);
             $model->setConnection($this->connection);
