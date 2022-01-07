@@ -4,6 +4,14 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [2.1.0](https://github.com/vetmoves/com.moves.php.eloquent.subtypeable/compare/2.0.1...2.1.0) (2022-01-07)
+### Features
+
+* Added option for exception on subtype call ([877d72](https://github.com/vetmoves/com.moves.php.eloquent.subtypeable/commit/877d72e8e442a0ae33bede2f4071cae7958baae4))
+
+
+---
+
 ## [2.0.1](https://github.com/vetmoves/com.moves.php.eloquent.subtypeable/compare/2.0.0...2.0.1) (2022-01-06)
 ### Bug Fixes
 
