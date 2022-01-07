@@ -2,6 +2,7 @@
 
 namespace Tests\TestCases;
 
+use Moves\Eloquent\Subtypeable\Exceptions\SubtypeException;
 use Tests\Models\ChildClassA;
 use Tests\Models\ChildClassB;
 use Tests\Models\ChildClassC;
@@ -37,6 +38,46 @@ class TSubtypeableTest extends TestCase
         $child = $instance->subtype();
         $this->assertInstanceOf(ParentClass::class, $child);
         $this->assertEquals($instance->property, $child->property);
+    }
+
+    public function testManualSubtypeWithEmptySubtypeKey()
+    {
+        $instance = new ParentClass(['subtype_class' => '', 'property' => 123]);
+
+        $this->expectException(SubtypeException::class);
+        $this->expectExceptionMessage('empty');
+
+        $instance->subtype(true);
+    }
+
+    public function testManualSubtypeWithSubtypeKeyInvalidClass()
+    {
+        $instance = new ParentClass(['subtype_class' => 'ClassABC', 'property' => 123]);
+
+        $this->expectException(SubtypeException::class);
+        $this->expectExceptionMessage('not find');
+
+        $instance->subtype(true);
+    }
+
+    public function testManualSubtypeWithSubtypeKeyNotValidSubclass()
+    {
+        $instance = new ParentClass(['subtype_class' => self::class, 'property' => 123]);
+
+        $this->expectException(SubtypeException::class);
+        $this->expectExceptionMessage('subclass');
+
+        $instance->subtype(true);
+    }
+
+    public function testManualSubtypeWithCorrectType()
+    {
+        $instance = new ChildClassA(['subtype_class' => ChildClassA::class, 'property' => 123]);
+
+        $this->expectException(SubtypeException::class);
+        $this->expectExceptionMessage('correct');
+
+        $instance->subtype(true);
     }
 
     public function testAutomaticSubtype()

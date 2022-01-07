@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Concerns\HasAttributes;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Moves\Eloquent\Subtypeable\Contracts\ISubtypeable;
+use Moves\Eloquent\Subtypeable\Exceptions\SubtypeException;
 
 trait TSubtypeable
 {
@@ -26,12 +27,36 @@ trait TSubtypeable
         }
     }
 
-    public function subtype(): ISubtypeable {
+    public function subtype(bool $throwExceptionOnFail = false): ISubtypeable {
         $subtype = $this->getAttribute(static::$SUBTYPE_KEY);
 
         $currentClass = get_class($this);
 
-        if (class_exists($subtype) && $currentClass != $subtype) {
+        if (empty($subtype)) {
+            if ($throwExceptionOnFail) {
+                throw new SubtypeException(
+                    'Invalid subtype specified! Subtype key cannot be empty'
+                );
+            }
+        } elseif (!class_exists($subtype)) {
+            if ($throwExceptionOnFail) {
+                throw new SubtypeException(
+                    "Invalid subtype specified! Could not find class '{$subtype}'"
+                );
+            }
+        } elseif ($currentClass == $subtype) {
+            if ($throwExceptionOnFail) {
+                throw new SubtypeException(
+                    "Invalid subtype specified! Instance is already the correct type (got {$subtype})"
+                );
+            }
+        } elseif (!is_subclass_of($subtype, $currentClass)) {
+            if ($throwExceptionOnFail) {
+                throw new SubtypeException(
+                    "Invalid subtype specified! {$subtype} is not a subclass of {$currentClass}"
+                );
+            }
+        } else {
             /** @var Model|ISubtypeable $model */
             $model = new $subtype();
             $model->setRawAttributes($this->attributes);
