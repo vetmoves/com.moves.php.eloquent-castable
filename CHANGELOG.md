@@ -4,6 +4,14 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [2.2.0](https://github.com/vetmoves/com.moves.php.eloquent.subtypeable/compare/2.1.0...2.2.0) (2022-02-21)
+### Features
+
+* Added static subtypeClassOverridesMethod helper ([969237](https://github.com/vetmoves/com.moves.php.eloquent.subtypeable/commit/969237f9e615f9dbb4cada85f74d3b738ef79290))
+
+
+---
+
 ## [2.1.0](https://github.com/vetmoves/com.moves.php.eloquent.subtypeable/compare/2.0.1...2.1.0) (2022-01-07)
 ### Features
 
