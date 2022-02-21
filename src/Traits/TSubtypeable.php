@@ -69,11 +69,19 @@ trait TSubtypeable
         return $this;
     }
 
-    protected function subtypeOverridesMethod(string $method): bool
+    protected static function subtypeClassOverridesMethod(string $class, string $method): bool
     {
-        $reflector = new \ReflectionMethod($this->subtype(), $method);
+        $reflector = new \ReflectionMethod($class, $method);
 
         return $reflector->getDeclaringClass()->getName() != self::class;
+    }
+
+    protected function subtypeOverridesMethod(string $method): bool
+    {
+        return static::subtypeClassOverridesMethod(
+            $this->getAttribute(static::$SUBTYPE_KEY),
+            $method
+        );
     }
 
     /**
