@@ -143,7 +143,7 @@ trait TSubtypeable
             }
         }
 
-        $model = new $className((array) $attributes);
+        $model = (new $className((array) $attributes))->subtype();
 
         $model->exists = $exists;
 
