@@ -4,6 +4,15 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [3.0.0](https://github.com/vetmoves/com.moves.php.eloquent.subtypeable/compare/2.2.1...3.0.0) (2022-09-07)
+
+### ⚠ BREAKING CHANGES
+
+* Upgrade to PHP 8.1 and Laravel 9 ([c57e60](https://github.com/vetmoves/com.moves.php.eloquent.subtypeable/commit/c57e60e982868a6060751aa757e79abcd250ba9b))
+
+
+---
+
 ## [2.2.1](https://github.com/vetmoves/com.moves.php.eloquent.subtypeable/compare/2.2.0...2.2.1) (2022-08-01)
 ### Bug Fixes
 
