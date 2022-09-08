@@ -145,6 +145,10 @@ trait TSubtypeable
 
         $model = (new $className((array) $attributes))->subtype();
 
+        $defaultAttributes = (new (get_class($model)))->getAttributes();
+        $model->setRawAttributes($defaultAttributes);
+        $model->fill((array) $attributes);
+
         $model->exists = $exists;
 
         $model->setConnection(
