@@ -4,6 +4,15 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [3.0.1](https://github.com/vetmoves/com.moves.php.eloquent.subtypeable/compare/3.0.0...3.0.1) (2022-09-08)
+
+### Bug Fixes
+
+* Use default subtype attributes when creating from base class ([a1378e](https://github.com/vetmoves/com.moves.php.eloquent.subtypeable/commit/a1378eaf9234cf0938cfc838b799b599470e3cef))
+
+
+---
+
 ## [3.0.0](https://github.com/vetmoves/com.moves.php.eloquent.subtypeable/compare/2.2.1...3.0.0) (2022-09-07)
 
 ### ⚠ BREAKING CHANGES
