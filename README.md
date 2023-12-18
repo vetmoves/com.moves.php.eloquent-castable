@@ -1,3 +1,6 @@
+# Abandoned
+This package is abandoned, and the source has been transferred to our primary application repository https://github.com/vetmoves/com.moves.web
+
 # Subtypeable
 ## Introduction
 The purpose of this library is to provide overrides to the default Laravel/Eloquent behaviors for querying model
